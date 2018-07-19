@@ -45,12 +45,13 @@ public class HomeWork3 {
 
     public static int getNumberFromScanner(int min, int max) {
         int d = 3 ;
+        int a;
         int x;
         int answer;
         do {
             System.out.println("Угадай, какое число я загадала: от 0 до 9 , у тебя " + d + " попытки!");
 //            System.out.println("Смелее, я помогу тебе :)");
-            int a = number.nextInt(9);
+            a = number.nextInt(9);
             x = sc.nextInt();
             if ( x == a ){
                 System.out.println("Угодал!!!");
@@ -73,7 +74,7 @@ public class HomeWork3 {
                     System.out.println("Удачи мой друг :)");
                 break;
             }
-        } while (x != number.nextInt(9));
+        } while (x != a);
        // System.out.println("Твое последнее число которое ты ввел");  - почему-то выводит столько раз сколько раз я сыграл в игру
         return x;
     }
