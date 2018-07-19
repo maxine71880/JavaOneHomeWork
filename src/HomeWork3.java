@@ -1,3 +1,6 @@
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * Created by Andrej 'DeD' Didenko.
  * --- 17.07.2018 ---
@@ -27,10 +30,53 @@ public class HomeWork3 {
   * Играем до тех пор, пока игрок не отгадает слово0
   * Используем только маленькие буквы */
 
+ public static Scanner sc = new Scanner(System.in);
+ public static Random number = new Random();
+
     public static void main (String[] args){
 
-        System.out.println("Hello World");
 
+        System.out.println("Привет! Я программа Ирина.");
+        int a = getNumberFromScanner(0,9);
+        System.out.println(a);
+//        "Угадай, какое число я загадала от 0 до 9 , у тебя 3 попытки"
 
     }
+
+    public static int getNumberFromScanner(int min, int max) {
+        int d = 3 ;
+        int a;
+        int x;
+        int answer;
+        do {
+            System.out.println("Угадай, какое число я загадала: от 0 до 9 , у тебя " + d + " попытки!");
+//            System.out.println("Смелее, я помогу тебе :)");
+            a = number.nextInt(9);
+            x = sc.nextInt();
+            if ( x == a ){
+                System.out.println("Угодал!!!");
+                d = 0 ;
+              }
+//              else if (x < a){
+//                System.out.println("Число которое я загодала, больше того которое ты ввел ;)");
+//            } else if (x > a){
+//                System.out.println("Число которое я загодала, меньше того которое ты ввел ;)");
+//            }
+            d--;
+
+            if (d == 0 || x == a) {
+                System.out.println("Хочешь сыграть еще разок? 1 - да! , 0 - нет!");
+                answer = sc.nextInt();
+                if (answer == 1){
+                    System.out.println("Ну погнали!!!");
+                    getNumberFromScanner(0,9);
+                } else
+                    System.out.println("Удачи мой друг :)");
+                break;
+            }
+        } while (x != a);
+       // System.out.println("Твое последнее число которое ты ввел");  - почему-то выводит столько раз сколько раз я сыграл в игру
+        return x;
+    }
+
 }
